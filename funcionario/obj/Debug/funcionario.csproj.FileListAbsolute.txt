@@ -1,0 +1,14 @@
+C:\Users\2022102020044\source\repos\funcionario\funcionario\bin\Debug\funcionario.exe.config
+C:\Users\2022102020044\source\repos\funcionario\funcionario\bin\Debug\funcionario.exe
+C:\Users\2022102020044\source\repos\funcionario\funcionario\bin\Debug\funcionario.pdb
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.csproj.AssemblyReference.cache
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.csproj.SuggestedBindingRedirects.cache
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.Form1.resources
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.Properties.Resources.resources
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.csproj.GenerateResource.cache
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.csproj.CoreCompileInputs.cache
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.exe
+C:\Users\2022102020044\source\repos\funcionario\funcionario\obj\Debug\funcionario.pdb
+C:\Users\emily\OneDrive\Documentos\funcionario[1]\funcionario\funcionario\obj\Debug\funcionario.csproj.AssemblyReference.cache
+C:\Users\emily\OneDrive\Documentos\funcionario[1]\funcionario\funcionario\obj\Debug\funcionario.exe
+C:\Users\emily\OneDrive\Documentos\funcionario[1]\funcionario\funcionario\obj\Debug\funcionario.pdb
