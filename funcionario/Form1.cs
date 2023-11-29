@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace funcionario
 {
     public partial class Form1 : Form
     {
         List<Cadastro> funcionario;
+        MySqlConnection Conexao;
 
         public Form1()
         {
@@ -51,38 +53,69 @@ namespace funcionario
             string validarcpf = mkd_cpf.Text;
             bool Resulcpf = CPF.ValidacaoCpf(validarcpf);
 
-
-            if (Resulcpf == true)
+            try
             {
-                Cadastro funcionario = new Cadastro();
-                funcionario.Nome = tx_nome.Text;
-                funcionario.EstadoCivil = cb_estadocivil.Text;
-                funcionario.DataNascimento = Convert.ToDateTime(mkd_datanascimento.Text);
-                funcionario.RG = Convert.ToInt32(tx_rg.Text);
-                funcionario.CPF = Convert.ToInt32(mkd_cpf.Text);
-                funcionario.Email = tx_email.Text;
-                funcionario.Telefone = Convert.ToString(mkd_telefone.Text);
-                funcionario.Endereco = tx_endereco.Text;
-                funcionario.Cidade = tx_cidade.Text;
-                funcionario.Estado = tx_estado.Text;
-                funcionario.Funcao = tx_funcao.Text;
-                funcionario.Salario = Convert.ToDouble(tx_salario.Text);
+                string data_source = "datasource=localhost;username=root;password=;database=cadastro_bd";
+                //criar conexão com o MySql
+              
+                Conexao = new MySqlConnection();
 
-                Cadastro.Add(funcionario);
+                string sql = "INSERT INTO funcionario (nome_fun,estado_civil_fun, data_nasc_fun, cpf_fun, rg_fun, email_fun, " +
+                "telefone_fun, cidade_fun, estado_fun, funcao_fun, salario_fun) VALUES ('" + tx_nome + "', '" + cb_estadocivil +"', '" + mkd_datanascimento.Text +  "', '" + tx_rg.Text + "', '" + mkd_cpf.Text + "'," +
+                " '"+ tx_email +"', '"+ mkd_telefone.Text+"', '"+ tx_cidade+"', '"+tx_estado+"', '"+tx_funcao+"', '"+tx_salario.Text+"')";
 
-                MessageBox.Show($"Funcionário cadastrado." + "\n Dados do funcionario(a): \n ");
+                //executar comando insert
+
+                MySqlCommand comando = new MySqlCommand(sql, Conexao);
+
+                Conexao.Open();
+
+                comando.ExecuteReader();
+
+                MessageBox.Show("Inserido");
+
+                if (Resulcpf == true)
+                {
+                    Cadastro funcionario = new Cadastro();
+                    funcionario.Nome = tx_nome.Text;
+                    funcionario.EstadoCivil = cb_estadocivil.Text;
+                    funcionario.DataNascimento = Convert.ToDateTime(mkd_datanascimento.Text);
+                    funcionario.RG = Convert.ToInt32(tx_rg.Text);
+                    funcionario.CPF = Convert.ToInt32(mkd_cpf.Text);
+                    funcionario.Email = tx_email.Text;
+                    funcionario.Telefone = Convert.ToString(mkd_telefone.Text);
+                    funcionario.Endereco = tx_endereco.Text;
+                    funcionario.Cidade = tx_cidade.Text;
+                    funcionario.Estado = tx_estado.Text;
+                    funcionario.Funcao = tx_funcao.Text;
+                    funcionario.Salario = Convert.ToDouble(tx_salario.Text);
+
+                    Cadastro.Add(funcionario);
+
+                    MessageBox.Show($"Funcionário cadastrado." + "\n Dados do funcionario(a): \n ");
+                }
+                else
+                {
+
+                }
             }
-            else
+
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 
-            } 
+            }
+            finally
+            {
+                Conexao.Close();
+            }
+
+
         }
-        bool cancelar = false;
+     
         private void button1_Click(object sender, EventArgs e)
         {
-            cancelar = true;
-            Console.ReadKey();
-          
+            this.Close();
           
         }
     
